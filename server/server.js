@@ -45,7 +45,7 @@ function loadEnvVariables() {
 loadEnvVariables();
 
 const app = express();
-const PORT = parseInt(process.env.PORT, 10) || 5000;
+const PORT = parseInt(process.env.PORT, 10) || (process.env.NODE_ENV === 'production' ? 10000 : 5000);
 const HOST = process.env.HOST || '0.0.0.0';
 const DATA_DIR = path.join(__dirname, 'data');
 
@@ -91,14 +91,51 @@ process.on('unhandledRejection', (reason) => {
 });
 
 // -------------------------------------------------------------
+// 1. HEALTH CHECK ENDPOINTS (/health and /api/health)
+// Registered FIRST with unrestricted access so cloud health probes
+// (Render, Docker, Kubernetes, AWS ALB) never fail due to CORS/auth.
+// -------------------------------------------------------------
+function getHealthPayload() {
+  return {
+    status: 'ok',
+    app: 'BioNexus Studio',
+    version: '2.1.0',
+    timestamp: new Date().toISOString(),
+    uptimeSeconds: Math.floor(process.uptime()),
+    nodeVersion: process.version,
+    port: PORT,
+    environment: process.env.NODE_ENV || 'development',
+    corsOrigins: configuredOrigins.length ? configuredOrigins : ['* (same-origin / dev localhost)'],
+    ncbiQueue: typeof ncbiQueue !== 'undefined' && ncbiQueue ? ncbiQueue.getStatus() : null
+  };
+}
+
+app.get('/health', (req, res) => {
+  res.status(200).json(getHealthPayload());
+});
+
+app.get('/api/health', (req, res) => {
+  res.status(200).json(getHealthPayload());
+});
+
+// -------------------------------------------------------------
 // CORS CONFIGURATION
 // In production, restrict to allowed origins specified by env var.
 // When served from the same origin, requests either have no Origin header or match the deployed domain.
+// Automatically permits Render domains (*.onrender.com) and localhost.
 // -------------------------------------------------------------
 const rawAllowedOrigins = process.env.ALLOWED_ORIGIN || process.env.ALLOWED_ORIGINS || process.env.CORS_ORIGIN || process.env.CORS_ORIGINS || process.env.APP_URL || process.env.VITE_PUBLIC_APP_URL || '';
 const configuredOrigins = rawAllowedOrigins
   ? rawAllowedOrigins.split(',').map(s => s.trim().replace(/\/$/, '')).filter(Boolean)
   : [];
+
+// Add Render auto-detected URL if present
+if (process.env.RENDER_EXTERNAL_URL) {
+  const renderOrigin = process.env.RENDER_EXTERNAL_URL.replace(/\/$/, '');
+  if (!configuredOrigins.includes(renderOrigin)) {
+    configuredOrigins.push(renderOrigin);
+  }
+}
 
 const corsOptions = {
   origin: (origin, callback) => {
@@ -112,7 +149,12 @@ const corsOptions = {
       return callback(null, true);
     }
 
-    // 3. Localhost development fallback when ALLOWED_ORIGIN is not explicitly configured
+    // 3. Automatically permit any *.onrender.com subdomain
+    if (/\.onrender\.com$/.test(normalizedOrigin)) {
+      return callback(null, true);
+    }
+
+    // 4. Localhost development fallback when ALLOWED_ORIGIN is not explicitly configured
     if (configuredOrigins.length === 0) {
       const isLocal = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(normalizedOrigin);
       if (isLocal || process.env.NODE_ENV !== 'production') {
@@ -120,7 +162,7 @@ const corsOptions = {
       }
     }
 
-    // 4. In development mode, allow for local testing
+    // 5. In development mode, allow for local testing
     if (process.env.NODE_ENV !== 'production') {
       return callback(null, true);
     }
@@ -146,32 +188,6 @@ app.use((req, res, next) => {
     }
   });
   next();
-});
-
-// -------------------------------------------------------------
-// 1. HEALTH CHECK ENDPOINTS (/health and /api/health)
-// Cloud platforms (Render, Docker, Kubernetes, AWS ALB) query /health
-// -------------------------------------------------------------
-function getHealthPayload() {
-  return {
-    status: 'ok',
-    app: 'BioNexus Studio',
-    version: '2.1.0',
-    timestamp: new Date().toISOString(),
-    uptimeSeconds: Math.floor(process.uptime()),
-    nodeVersion: process.version,
-    environment: process.env.NODE_ENV || 'development',
-    corsOrigins: configuredOrigins.length ? configuredOrigins : ['* (same-origin / dev localhost)'],
-    ncbiQueue: typeof ncbiQueue !== 'undefined' && ncbiQueue ? ncbiQueue.getStatus() : null
-  };
-}
-
-app.get('/health', (req, res) => {
-  res.status(200).json(getHealthPayload());
-});
-
-app.get('/api/health', (req, res) => {
-  res.status(200).json(getHealthPayload());
 });
 
 // -------------------------------------------------------------
