@@ -45,7 +45,8 @@ function loadEnvVariables() {
 loadEnvVariables();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = parseInt(process.env.PORT, 10) || 5000;
+const HOST = process.env.HOST || '0.0.0.0';
 const DATA_DIR = path.join(__dirname, 'data');
 
 // Ensure data directory exists
@@ -89,8 +90,49 @@ process.on('unhandledRejection', (reason) => {
   console.error(`[${new Date().toISOString()}] [CRASH GUARD - UNHANDLED REJECTION]:`, reason);
 });
 
-// Middleware
-app.use(cors());
+// -------------------------------------------------------------
+// CORS CONFIGURATION
+// In production, restrict to allowed origins specified by env var.
+// When served from the same origin, requests either have no Origin header or match the deployed domain.
+// -------------------------------------------------------------
+const rawAllowedOrigins = process.env.ALLOWED_ORIGIN || process.env.ALLOWED_ORIGINS || process.env.CORS_ORIGIN || process.env.CORS_ORIGINS || process.env.APP_URL || process.env.VITE_PUBLIC_APP_URL || '';
+const configuredOrigins = rawAllowedOrigins
+  ? rawAllowedOrigins.split(',').map(s => s.trim().replace(/\/$/, '')).filter(Boolean)
+  : [];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    // 1. Allow same-origin / non-browser requests (no origin header, e.g. curl, health checks, server-to-server)
+    if (!origin) return callback(null, true);
+
+    const normalizedOrigin = origin.replace(/\/$/, '');
+
+    // 2. If wildcard or matches configured origin
+    if (configuredOrigins.includes('*') || configuredOrigins.includes(normalizedOrigin)) {
+      return callback(null, true);
+    }
+
+    // 3. Localhost development fallback when ALLOWED_ORIGIN is not explicitly configured
+    if (configuredOrigins.length === 0) {
+      const isLocal = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(normalizedOrigin);
+      if (isLocal || process.env.NODE_ENV !== 'production') {
+        return callback(null, true);
+      }
+    }
+
+    // 4. In development mode, allow for local testing
+    if (process.env.NODE_ENV !== 'production') {
+      return callback(null, true);
+    }
+
+    return callback(new Error(`[CORS Policy Blocked] Origin ${origin} is not allowed.`));
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'NCBI-API-Key', 'X-Requested-With']
+};
+
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
@@ -99,7 +141,7 @@ app.use((req, res, next) => {
   const start = Date.now();
   res.on('finish', () => {
     const duration = Date.now() - start;
-    if (req.path.startsWith('/api')) {
+    if (req.path.startsWith('/api') || req.path === '/health') {
       console.log(`[${new Date().toISOString()}] ${req.method} ${req.path} - ${res.statusCode} (${duration}ms)`);
     }
   });
@@ -107,19 +149,29 @@ app.use((req, res, next) => {
 });
 
 // -------------------------------------------------------------
+// 1. HEALTH CHECK ENDPOINTS (/health and /api/health)
+// Cloud platforms (Render, Docker, Kubernetes, AWS ALB) query /health
 // -------------------------------------------------------------
-// 1. HEALTH CHECK ENDPOINT
-// -------------------------------------------------------------
-app.get('/api/health', (req, res) => {
-  res.json({
-    status: 'online',
+function getHealthPayload() {
+  return {
+    status: 'ok',
     app: 'BioNexus Studio',
     version: '2.1.0',
     timestamp: new Date().toISOString(),
     uptimeSeconds: Math.floor(process.uptime()),
     nodeVersion: process.version,
-    ncbiQueue: ncbiQueue.getStatus()
-  });
+    environment: process.env.NODE_ENV || 'development',
+    corsOrigins: configuredOrigins.length ? configuredOrigins : ['* (same-origin / dev localhost)'],
+    ncbiQueue: typeof ncbiQueue !== 'undefined' && ncbiQueue ? ncbiQueue.getStatus() : null
+  };
+}
+
+app.get('/health', (req, res) => {
+  res.status(200).json(getHealthPayload());
+});
+
+app.get('/api/health', (req, res) => {
+  res.status(200).json(getHealthPayload());
 });
 
 // -------------------------------------------------------------
@@ -1260,8 +1312,22 @@ const distDir = path.join(__dirname, '..', 'dist');
 if (fs.existsSync(distDir)) {
   app.use(express.static(distDir));
   app.use((req, res, next) => {
-    if (req.path.startsWith('/api')) return next();
+    if (req.path.startsWith('/api') || req.path === '/health') return next();
     res.sendFile(path.join(distDir, 'index.html'));
+  });
+} else {
+  app.get('/', (req, res) => {
+    res.status(200).send(`
+      <!DOCTYPE html>
+      <html>
+        <head><title>BioNexus Studio API</title></head>
+        <body style="font-family: sans-serif; background: #0b132b; color: #f8fafc; padding: 2rem;">
+          <h1>BioNexus Studio Single-Service Web Server</h1>
+          <p>Frontend production assets not yet compiled. Run <code>npm run build</code> to generate <code>dist/</code>.</p>
+          <p><a href="/health" style="color: #38bdf8;">View /health status</a></p>
+        </body>
+      </html>
+    `);
   });
 }
 
@@ -1270,13 +1336,13 @@ const isDirectExecution = process.argv[1] && path.resolve(process.argv[1]) === _
 const isTestRunner = Boolean(process.env.NODE_TEST_CONTEXT) || process.argv.some(a => a.includes('test'));
 
 if (isDirectExecution && !isTestRunner) {
-  app.listen(PORT, () => {
+  app.listen(PORT, HOST, () => {
     console.log(`====================================================`);
-    console.log(`  BioNexus Studio — Backend Server Online`);
-    console.log(`  Live Site: https://bionexusstudio.ai`);
-    console.log(`  Local Server: http://localhost:${PORT}`);
-    console.log(`  Health Check: http://localhost:${PORT}/api/health`);
-    console.log(`  Storage Directory: ${DATA_DIR}`);
+    console.log(`  BioNexus Studio — Single Web Service Online`);
+    console.log(`  Binding Address: http://${HOST}:${PORT}`);
+    console.log(`  Health Check:    http://${HOST}:${PORT}/health`);
+    console.log(`  NCBI API Status: http://${HOST}:${PORT}/api/ncbi/status`);
+    console.log(`  CORS Mode:       ${configuredOrigins.length ? configuredOrigins.join(', ') : 'Default local/same-origin'}`);
     console.log(`====================================================`);
   });
 }

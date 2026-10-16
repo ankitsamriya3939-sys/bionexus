@@ -18,7 +18,7 @@ const NCBI_TOOL_PARAM = 'tool=BioNexusStudio&email=support@bionexusstudio.ai';
 export const NCBI_API_KEY = (typeof import.meta !== 'undefined' && (import.meta?.env?.VITE_NCBI_API_KEY || import.meta?.env?.NCBI_API_KEY)) || 
   (typeof process !== 'undefined' && (process.env?.NCBI_API_KEY || process.env?.VITE_NCBI_API_KEY)) || 
   (typeof window !== 'undefined' && (window.__NCBI_API_KEY__ || window.NCBI_API_KEY)) || 
-  'f90674dcbbd9074c7c4117f38c9cc299bb08';
+  '';
 
 export const NCBI_RATE_LIMIT = NCBI_API_KEY ? 10 : 3;
 

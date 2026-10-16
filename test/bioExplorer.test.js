@@ -238,7 +238,7 @@ describe('BioNexus Studio: Global Bio-Database Explorer Verification Suite', () 
     assert.ok(unauthStatus.rateLimitDescription.includes('Unauthenticated Limit'));
 
     // Authenticated queue with user-provided API key
-    const authQueue = new NcbiRateLimitedQueue('f90674dcbbd9074c7c4117f38c9cc299bb08');
+    const authQueue = new NcbiRateLimitedQueue('test_ncbi_api_key_rotate_proof_123');
     assert.strictEqual(authQueue.hasApiKey, true);
     assert.strictEqual(authQueue.rateLimit, 10, 'Authenticated limit must be unlocked to 10 req/s');
     assert.strictEqual(authQueue.minIntervalMs, 100);
@@ -249,15 +249,15 @@ describe('BioNexus Studio: Global Bio-Database Explorer Verification Suite', () 
 
   // Test 11: NCBI Queue URL Formatter appends api_key safely
   it('Case 11: formatUrl appends &api_key parameter without duplicating existing parameters', () => {
-    const queueWithKey = new NcbiRateLimitedQueue('f90674dcbbd9074c7c4117f38c9cc299bb08');
+    const queueWithKey = new NcbiRateLimitedQueue('test_ncbi_api_key_rotate_proof_123');
     
     // URL with existing query parameters
     const url1 = queueWithKey.formatUrl('https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=nucleotide&term=BRCA1');
-    assert.ok(url1.includes('&api_key=f90674dcbbd9074c7c4117f38c9cc299bb08'), 'Must append &api_key');
+    assert.ok(url1.includes('&api_key=test_ncbi_api_key_rotate_proof_123'), 'Must append &api_key');
 
     // URL without parameters
     const url2 = queueWithKey.formatUrl('https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi');
-    assert.ok(url2.includes('?api_key=f90674dcbbd9074c7c4117f38c9cc299bb08'), 'Must append ?api_key');
+    assert.ok(url2.includes('?api_key=test_ncbi_api_key_rotate_proof_123'), 'Must append ?api_key');
 
     // URL that already has api_key
     const url3 = queueWithKey.formatUrl('https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=nucleotide&api_key=existing');
@@ -271,7 +271,7 @@ describe('BioNexus Studio: Global Bio-Database Explorer Verification Suite', () 
 
   // Test 12: Client-side direct queue enforces rate limit spacing
   it('Case 12: ClientNcbiQueue configures 10 req/s limit with API key and correctly tracks queue state', () => {
-    const clientQueue = new ClientNcbiQueue('f90674dcbbd9074c7c4117f38c9cc299bb08');
+    const clientQueue = new ClientNcbiQueue('test_ncbi_api_key_rotate_proof_123');
     assert.strictEqual(clientQueue.rateLimit, 10);
     assert.strictEqual(clientQueue.minInterval, 100);
 
