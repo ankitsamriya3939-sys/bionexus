@@ -1,0 +1,681 @@
+/* ==========================================================================
+   BIONEXUS STUDIO — SCIENTIFIC DESIGN SYSTEM TOKENS (PHASE 2)
+   Inspired by PyMOL, ChimeraX, and Professional Scientific Workstations
+   ========================================================================== */
+
+:root {
+  /* Surfaces: Deep Graphite & Charcoal Hierarchy */
+  --bn-surface-0: #07090e;        /* Deepest canvas background */
+  --bn-surface-1: #0b0f17;        /* Sidebar, bottom status bars */
+  --bn-surface-2: #101622;        /* Panels, cards, toolbars */
+  --bn-surface-3: #161e2e;        /* Inputs, elevated buttons, hover */
+  --bn-surface-4: #1d273b;        /* Dropdowns, tooltips, dialogs */
+  --bn-surface-overlay: rgba(7, 9, 14, 0.75);
+
+  /* Borders: Precise, hairline scientific boundaries */
+  --bn-border-subtle: rgba(255, 255, 255, 0.06);
+  --bn-border-default: rgba(255, 255, 255, 0.12);
+  --bn-border-strong: rgba(255, 255, 255, 0.22);
+  --bn-border-focus: #06b6d4;
+
+  /* Typography: High-contrast legibility */
+  --bn-text-primary: #f8fafc;     /* Crisp white headings & data */
+  --bn-text-secondary: #94a3b8;   /* Labels, descriptive text */
+  --bn-text-muted: #64748b;       /* Units, timestamps, inactive states */
+  --bn-text-disabled: #475569;
+
+  /* Scientific Accents: Semantic, restrained application */
+  --bn-cyan: #06b6d4;             /* Primary interactive, DNA, sequences */
+  --bn-cyan-subtle: rgba(6, 182, 212, 0.12);
+  --bn-cyan-hover: #22d3ee;
+
+  --bn-emerald: #10b981;          /* Evolutionary valid, trees, success */
+  --bn-emerald-subtle: rgba(16, 185, 129, 0.12);
+
+  --bn-amber: #f59e0b;            /* Macromolecules, PDB, cautions */
+  --bn-amber-subtle: rgba(245, 158, 11, 0.12);
+
+  --bn-violet: #8b5cf6;           /* Knowledge graph, literature, evidence */
+  --bn-violet-subtle: rgba(139, 92, 246, 0.12);
+
+  --bn-rose: #f43f5e;             /* Discrepancies, deletions, errors */
+  --bn-rose-subtle: rgba(244, 63, 94, 0.12);
+
+  --bn-blue: #3b82f6;             /* General scientific data, citations */
+  --bn-blue-subtle: rgba(59, 130, 246, 0.12);
+
+  /* Fonts */
+  --bn-font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --bn-font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Layout Dimensions */
+  --bn-topbar-height: 44px;
+  --bn-sidebar-width: 236px;
+  --bn-sidebar-collapsed-width: 52px;
+  --bn-statusbar-height: 28px;
+  --bn-toolbar-height: 38px;
+
+  /* Density & Controls */
+  --bn-control-h-sm: 26px;
+  --bn-control-h-md: 32px;
+  --bn-control-h-lg: 38px;
+
+  --bn-radius-xs: 3px;
+  --bn-radius-sm: 5px;
+  --bn-radius-md: 8px;
+  --bn-radius-lg: 12px;
+
+  /* Controlled Scientific Shadows (Non-neon, crisp depth) */
+  --bn-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --bn-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --bn-shadow-lg: 0 10px 28px rgba(0, 0, 0, 0.6);
+  --bn-shadow-focus: 0 0 0 2px rgba(6, 182, 212, 0.25);
+
+  /* Transitions */
+  --bn-trans-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+  --bn-trans-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Scientific High-Contrast Light Mode */
+[data-bn-theme="light"] {
+  --bn-surface-0: #f1f4f9;
+  --bn-surface-1: #ffffff;
+  --bn-surface-2: #f8fafc;
+  --bn-surface-3: #e2e8f0;
+  --bn-surface-4: #cbd5e1;
+  --bn-surface-overlay: rgba(241, 244, 249, 0.85);
+
+  --bn-border-subtle: rgba(0, 0, 0, 0.06);
+  --bn-border-default: rgba(0, 0, 0, 0.12);
+  --bn-border-strong: rgba(0, 0, 0, 0.25);
+  --bn-border-focus: #0891b2;
+
+  --bn-text-primary: #0a0f1d;
+  --bn-text-secondary: #475569;
+  --bn-text-muted: #64748b;
+  --bn-text-disabled: #94a3b8;
+
+  --bn-cyan: #0891b2;
+  --bn-cyan-subtle: rgba(8, 145, 178, 0.12);
+  --bn-cyan-hover: #0e7490;
+
+  --bn-emerald: #059669;
+  --bn-emerald-subtle: rgba(5, 150, 105, 0.12);
+
+  --bn-amber: #d97706;
+  --bn-amber-subtle: rgba(217, 119, 6, 0.12);
+
+  --bn-violet: #7c3aed;
+  --bn-violet-subtle: rgba(124, 58, 237, 0.12);
+
+  --bn-rose: #e11d48;
+  --bn-rose-subtle: rgba(225, 29, 72, 0.12);
+
+  --bn-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --bn-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --bn-shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   ISOLATED PREVIEW COMPONENT STYLES
+   Scoped strictly under .bn-preview-root to prevent production contamination
+   ========================================================================== */
+
+.bn-preview-root {
+  font-family: var(--bn-font-ui);
+  background-color: var(--bn-surface-0);
+  color: var(--bn-text-primary);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bn-preview-root * {
+  box-sizing: border-box;
+}
+
+/* Monospace sequences */
+.bn-mono {
+  font-family: var(--bn-font-mono);
+  letter-spacing: -0.02em;
+}
+
+/* Top Toolbar */
+.bn-topbar {
+  height: var(--bn-topbar-height);
+  background-color: var(--bn-surface-1);
+  border-bottom: 1px solid var(--bn-border-default);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  flex-shrink: 0;
+  z-index: 40;
+}
+
+.bn-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--bn-text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.bn-brand-icon {
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(135deg, var(--bn-cyan), #0284c7);
+  border-radius: var(--bn-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #07090e;
+  box-shadow: 0 2px 6px rgba(6, 182, 212, 0.35);
+}
+
+.bn-brand-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bn-brand-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: var(--bn-radius-xs);
+  background: var(--bn-surface-3);
+  color: var(--bn-cyan);
+  border: 1px solid var(--bn-border-subtle);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Sidebar */
+.bn-sidebar {
+  width: var(--bn-sidebar-width);
+  background-color: var(--bn-surface-1);
+  border-right: 1px solid var(--bn-border-default);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+  transition: width var(--bn-trans-normal);
+  user-select: none;
+}
+
+.bn-sidebar.collapsed {
+  width: var(--bn-sidebar-collapsed-width);
+}
+
+.bn-sidebar-section-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bn-text-muted);
+  padding: 12px 14px 4px;
+}
+
+.bn-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 12px;
+  margin: 1px 8px;
+  border-radius: var(--bn-radius-sm);
+  color: var(--bn-text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--bn-trans-fast);
+  text-decoration: none;
+}
+
+.bn-nav-link:hover {
+  background-color: var(--bn-surface-2);
+  color: var(--bn-text-primary);
+}
+
+.bn-nav-link.active {
+  background-color: var(--bn-cyan-subtle);
+  color: var(--bn-cyan);
+  font-weight: 600;
+  border-color: rgba(6, 182, 212, 0.25);
+}
+
+.bn-nav-badge {
+  margin-left: auto;
+  font-size: 0.68rem;
+  padding: 1px 6px;
+  border-radius: 10px;
+  background: var(--bn-surface-3);
+  color: var(--bn-text-muted);
+  font-family: var(--bn-font-mono);
+}
+
+/* Workstation Layout */
+.bn-workspace-shell {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.bn-main-canvas-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--bn-surface-0);
+}
+
+/* Workstation Action Ribbon */
+.bn-ribbon {
+  height: var(--bn-toolbar-height);
+  background-color: var(--bn-surface-2);
+  border-bottom: 1px solid var(--bn-border-default);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  gap: 8px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.bn-ribbon-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bn-ribbon-divider {
+  width: 1px;
+  height: 18px;
+  background-color: var(--bn-border-default);
+  margin: 0 4px;
+}
+
+/* Scientific Buttons */
+.bn-btn {
+  height: var(--bn-control-h-md);
+  padding: 0 10px;
+  border-radius: var(--bn-radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  border: 1px solid var(--bn-border-default);
+  background-color: var(--bn-surface-3);
+  color: var(--bn-text-primary);
+  transition: all var(--bn-trans-fast);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.bn-btn:hover {
+  background-color: var(--bn-surface-4);
+  border-color: var(--bn-border-strong);
+}
+
+.bn-btn:active {
+  transform: translateY(1px);
+}
+
+.bn-btn-primary {
+  background-color: var(--bn-cyan);
+  border-color: var(--bn-cyan);
+  color: #07090e;
+}
+
+.bn-btn-primary:hover {
+  background-color: var(--bn-cyan-hover);
+  border-color: var(--bn-cyan-hover);
+}
+
+.bn-btn-ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--bn-text-secondary);
+}
+
+.bn-btn-ghost:hover {
+  background-color: var(--bn-surface-3);
+  color: var(--bn-text-primary);
+  border-color: var(--bn-border-subtle);
+}
+
+.bn-btn-active {
+  background-color: var(--bn-cyan-subtle);
+  border-color: rgba(6, 182, 212, 0.4);
+  color: var(--bn-cyan);
+}
+
+.bn-btn-icon {
+  width: var(--bn-control-h-md);
+  height: var(--bn-control-h-md);
+  padding: 0;
+  justify-content: center;
+}
+
+/* Scientific Inputs & Selects */
+.bn-input {
+  height: var(--bn-control-h-md);
+  background-color: var(--bn-surface-1);
+  border: 1px solid var(--bn-border-default);
+  border-radius: var(--bn-radius-sm);
+  padding: 0 8px;
+  font-size: 0.78rem;
+  color: var(--bn-text-primary);
+  outline: none;
+  transition: border-color var(--bn-trans-fast), box-shadow var(--bn-trans-fast);
+}
+
+.bn-input:focus {
+  border-color: var(--bn-border-focus);
+  box-shadow: var(--bn-shadow-focus);
+}
+
+.bn-select {
+  height: var(--bn-control-h-md);
+  background-color: var(--bn-surface-1);
+  border: 1px solid var(--bn-border-default);
+  border-radius: var(--bn-radius-sm);
+  padding: 0 24px 0 8px;
+  font-size: 0.78rem;
+  color: var(--bn-text-primary);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+  background-size: 14px;
+}
+
+.bn-select:focus {
+  border-color: var(--bn-border-focus);
+  box-shadow: var(--bn-shadow-focus);
+}
+
+/* Scientific Inspector Drawer (Right Panel) */
+.bn-inspector {
+  width: 320px;
+  background-color: var(--bn-surface-1);
+  border-left: 1px solid var(--bn-border-default);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+  z-index: 20;
+}
+
+.bn-inspector-header {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--bn-border-default);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bn-surface-2);
+}
+
+.bn-inspector-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--bn-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bn-inspector-section {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--bn-border-subtle);
+}
+
+.bn-inspector-section-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bn-text-muted);
+  margin-bottom: 8px;
+}
+
+/* Key-Value Scientific Table */
+.bn-kv-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 12px;
+  font-size: 0.77rem;
+}
+
+.bn-kv-label {
+  color: var(--bn-text-muted);
+  font-weight: 500;
+}
+
+.bn-kv-value {
+  color: var(--bn-text-primary);
+  font-weight: 600;
+  text-align: right;
+  word-break: break-all;
+}
+
+/* Status Bar (Bottom Strip) */
+.bn-statusbar {
+  height: var(--bn-statusbar-height);
+  background-color: var(--bn-surface-1);
+  border-top: 1px solid var(--bn-border-default);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  font-size: 0.72rem;
+  color: var(--bn-text-muted);
+  font-family: var(--bn-font-mono);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.bn-statusbar-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bn-status-pill {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--bn-emerald);
+}
+
+/* Scientific Data Tables */
+.bn-table-container {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--bn-border-default);
+  border-radius: var(--bn-radius-sm);
+  background-color: var(--bn-surface-1);
+}
+
+.bn-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  text-align: left;
+}
+
+.bn-table th {
+  background-color: var(--bn-surface-2);
+  color: var(--bn-text-secondary);
+  font-weight: 700;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--bn-border-default);
+  white-space: nowrap;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.bn-table td {
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--bn-border-subtle);
+  color: var(--bn-text-primary);
+  white-space: nowrap;
+}
+
+.bn-table tr:hover td {
+  background-color: var(--bn-surface-2);
+}
+
+/* Scientific Badges */
+.bn-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  border-radius: var(--bn-radius-xs);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-family: var(--bn-font-mono);
+  border: 1px solid transparent;
+}
+
+.bn-badge-cyan {
+  background-color: var(--bn-cyan-subtle);
+  color: var(--bn-cyan);
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+.bn-badge-emerald {
+  background-color: var(--bn-emerald-subtle);
+  color: var(--bn-emerald);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.bn-badge-amber {
+  background-color: var(--bn-amber-subtle);
+  color: var(--bn-amber);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.bn-badge-violet {
+  background-color: var(--bn-violet-subtle);
+  color: var(--bn-violet);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.bn-badge-rose {
+  background-color: var(--bn-rose-subtle);
+  color: var(--bn-rose);
+  border-color: rgba(244, 63, 94, 0.3);
+}
+
+/* Preview Demonstration Banner */
+.bn-preview-hud {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(11, 15, 23, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bn-cyan);
+  border-radius: 30px;
+  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  font-size: 0.78rem;
+}
+
+/* ==========================================================================
+   PyMOL-INSPIRED VISUAL ATMOSPHERE & MOLECULAR WORKSTATION
+   ========================================================================== */
+
+.bn-pymol-atmosphere {
+  background: #060913;
+  background-image: 
+    radial-gradient(ellipse at 75% 25%, rgba(139, 92, 246, 0.18) 0%, rgba(59, 130, 246, 0.10) 35%, transparent 65%),
+    radial-gradient(ellipse at 20% 75%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
+  color: var(--bn-text-primary);
+}
+
+.bn-viewport-canvas {
+  background: #030508;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.bn-viewport-canvas:active {
+  cursor: grabbing;
+}
+
+.bn-preset-card {
+  background: rgba(16, 22, 34, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bn-border-default);
+  border-radius: var(--bn-radius-md);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all var(--bn-trans-fast);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bn-preset-card:hover {
+  background: rgba(22, 30, 46, 0.9);
+  border-color: var(--bn-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.bn-preset-card.active {
+  border-color: var(--bn-cyan);
+  background: rgba(6, 182, 212, 0.1);
+}
+
+.bn-sequence-track-scroll {
+  display: flex;
+  gap: 3px;
+  overflow-x: auto;
+  padding: 4px 0 6px;
+}
+
+.bn-sequence-track-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.bn-sequence-track-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.bn-sequence-track-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--bn-cyan);
+}
+

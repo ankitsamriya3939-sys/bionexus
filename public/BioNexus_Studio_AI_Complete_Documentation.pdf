@@ -1,0 +1,791 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 10251
+>>
+stream
+0.5670000000000001 w
+0 G
+0.06 0.09 0.16 rg
+0. 841.8899999999999864 595.2799999999999727 -79.3700787401574814 re
+f
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.024 0.714 0.831 rg
+39.6850393700787407 807.8742519685039269 Td
+(BIONEXUS STUDIO AI) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+1. g
+39.6850393700787407 785.1970866141732586 Td
+(Complete Platform Architecture, Features & Audit Report) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.58 0.639 0.722 rg
+340.157480314960651 785.1970866141732586 Td
+(Date: 9/21/2026 | Platform Executive Summary) Tj
+ET
+0.12 0.16 0.23 rg
+39.6850393700787407 739.8427559055118081 515.9099212598424629 -22.677165354330711 re
+f
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+1. g
+51.0236220472441033 724.2522047244094665 Td
+(1. PRODUCT VISION & WORKFLOW INTEGRATION) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 705.8270078740157487 Td
+(• Core Vision:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+105.3943307086614283 705.8270078740157487 Td
+(BioNexus Studio AI transforms scattered web bioinformatics tools into a connected, beginner-friendly) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+105.3943307086614283 690.2364566929134071 Td
+(scientific workspace.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 674.6459055118109518 Td
+(• Connected Workflow:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+143.7743307086614379 674.6459055118109518 Td
+(NCBI / FASTA -> Sequence Validation -> Sequence Analysis -> Primer Design -> BLAST) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+143.7743307086614379 659.0553543307086102 Td
+(Specificity -> MSA & Phylogenetics -> AI Explanation -> PDF Report.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 643.4648031496062686 Td
+(• Live Site:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+92.854330708661422 643.4648031496062686 Td
+(https://bionexus-studio-ai.netlify.app) Tj
+ET
+0.12 0.16 0.23 rg
+39.6850393700787407 627.8742519685039269 515.9099212598424629 -22.677165354330711 re
+f
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+1. g
+51.0236220472441033 612.2837007874015853 Td
+(2. CORE FEATURES & MODULE SUMMARY) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 593.8585039370078675 Td
+(• NCBI Explorer:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+116.9843307086614175 593.8585039370078675 Td
+(Integrated Entrez E-utilities API to search Nucleotide, Protein, Gene, and PubMed databases; fetch) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+116.9843307086614175 578.2679527559055259 Td
+(FASTA sequences and summaries directly into analysis pipelines.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 562.6774015748030706 Td
+(• Primer Designer:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+124.7743307086613811 562.6774015748030706 Td
+(Nearest-Neighbor Tm calculation \(SantaLucia 1998\), GC%, length range checks, self-dimer &) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+124.7743307086613811 547.086850393700729 Td
+(cross-dimer analysis, top 5 ranked primer pairs with quality score.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 531.4962992125983874 Td
+(• BLAST Center:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+117.459330708661426 531.4962992125983874 Td
+(BLASTN, BLASTP, BLASTX, TBLASTN, TBLASTX alignment engine with interactive SVG Hit) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+117.459330708661426 515.9057480314959321 Td
+(Alignment Map \(Query vs Hit overview\) and E-value thresholds.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 500.3151968503936473 Td
+(• Sequence Analysis:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+136.8393307086614072 500.3151968503936473 Td
+(DNA reverse complement, GC%, 6-frame translation, ORF Finder; Protein molecular weight,) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+136.8393307086614072 484.7246456692913057 Td
+(Isoelectric Point \(pI\) prediction, and amino acid composition.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 469.1340944881889072 Td
+(• Alignment Hub \(MSA\):) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+147.8593307086614175 469.1340944881889072 Td
+(Multiple Sequence Alignment using progressive Needleman-Wunsch algorithm with Clustal) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+147.8593307086614175 453.5435433070865656 Td
+(color mapping, conservation scores, and consensus sequence.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 437.952992125984224 Td
+(• Phylogenetics Engine:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+147.2893307086614527 437.952992125984224 Td
+(Neighbor-Joining \(NJ\) & UPGMA tree reconstruction; Jukes-Cantor \(JC69\), Kimura 2-Parameter) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+147.2893307086614527 422.3624409448818255 Td
+(\(K80\), and p-Distance models; SVG tree renderer & Newick \(.nwk\) exporter.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 406.7718897637794839 Td
+(• Protein Structure:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+127.4343307086614345 406.7718897637794839 Td
+(Interactive 3D molecular viewer powered by 3Dmol.js supporting Cartoon, Stick, Sphere, and) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+127.4343307086614345 391.1813385826770855 Td
+(Surface rendering for PDB entries \(e.g., 1TUP\).) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 375.5907874015747439 Td
+(• AI Bioinformatics Assistant:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+168.5693307086614254 375.5907874015747439 Td
+(Context-aware AI assistant with "Audit My Page Work" feature that inspects current) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+168.5693307086614254 360.0002362204724022 Td
+(sequence state and parameter choices to give expert recommendations.) Tj
+ET
+0.12 0.16 0.23 rg
+39.6850393700787407 344.4096850393700038 515.9099212598424629 -22.677165354330711 re
+f
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+1. g
+51.0236220472441033 328.8191338582676053 Td
+(3. PHASE 1 DNA & FASTA VALIDATION ENGINE) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 310.3939370078740012 Td
+(• Validation Engine:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+129.904330708661405 310.3939370078740012 Td
+(Built real-time DNA & FASTA validator \(sequenceValidator.js\) detecting canonical bases) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+129.904330708661405 294.8033858267715459 Td
+(\(A,T,G,C,U\), IUPAC ambiguity codes, whitespace, and non-DNA characters.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 279.2128346456692043 Td
+(• Protein Input Guard:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+139.0243307086614379 279.2128346456692043 Td
+(Detects protein sequence inputs pasted into DNA primer fields and offers a 1-click option to fetch) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+139.0243307086614379 263.6222834645668627 Td
+(cDNA directly from NCBI.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 248.0317322834645211 Td
+(• ValidationPanel UI:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+134.1793307086613822 248.0317322834645211 Td
+(Reusable live feedback component showing length \(bp\), GC%, AT%, ambiguous base count, and) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+134.1793307086613822 232.4411811023621794 Td
+(explicit invalid character lists.) Tj
+ET
+0.12 0.16 0.23 rg
+39.6850393700787407 216.8506299212597526 515.9099212598424629 -22.677165354330711 re
+f
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+1. g
+51.0236220472441033 201.2600787401573825 Td
+(4. 10-POINT AUDIT & SCIENTIFIC VERIFICATION \(PASS\)) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 182.8348818897636647 Td
+(• Does It Work?:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+116.6043307086614362 182.8348818897636647 Td
+(PASS - All 9 application tabs execute expected workflows smoothly without freezing or crashing.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 167.2443307086613231 Td
+(• Scientific Accuracy:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+135.9843307086614175 167.2443307086613231 Td
+(PASS - Nearest-neighbor Tm, codon translation, Jukes-Cantor distance, and BLAST scoring match) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+135.9843307086614175 151.6537795275589815 Td
+(standard literature.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 136.0632283464566399 Td
+(• Invalid Input Rejection:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+149.5693307086614254 136.0632283464566399 Td
+(PASS - Non-DNA bases, negative range bounds, and protein sequences are rejected before) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+149.5693307086614254 120.4726771653542983 Td
+(execution.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 104.882125984251843 Td
+(• UI Error Clarity:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+119.1693307086614197 104.882125984251843 Td
+(PASS - Clear amber/red alert cards explicitly state validation failures and provide remediation steps.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 89.2915748031495013 Td
+(• Loading & API Failure:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+148.3343307086614402 89.2915748031495013 Td
+(PASS - Animated loading spinners display during API calls; network errors are caught gracefully) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+148.3343307086614402 73.7010236220471597 Td
+(in try/catch blocks.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 2243
+>>
+stream
+0.5670000000000001 w
+0 G
+0.06 0.09 0.16 rg
+0. 841.8899999999999864 595.2799999999999727 -79.3700787401574814 re
+f
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.024 0.714 0.831 rg
+39.6850393700787407 807.8742519685039269 Td
+(BIONEXUS STUDIO AI) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+1. g
+39.6850393700787407 785.1970866141732586 Td
+(Complete Platform & Workflow Report \(Cont.\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.58 0.639 0.722 rg
+340.157480314960651 785.1970866141732586 Td
+(Date: 9/21/2026 | Platform Executive Summary) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 739.8427559055118081 Td
+(• Mobile Responsiveness:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+156.31433070866143 739.8427559055118081 Td
+(PASS - Responsive CSS flex/grid layouts with max-width 768px breaking tabs into accessible) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+156.31433070866143 724.2522047244094665 Td
+(mobile cards.) Tj
+ET
+0.12 0.16 0.23 rg
+39.6850393700787407 708.6616535433070112 515.9099212598424629 -22.677165354330711 re
+f
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+1. g
+51.0236220472441033 693.0711023622046696 Td
+(5. PHYLOGENETICS MODULE DEBUGGING & FIXES) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 674.6459055118109518 Td
+(• Algorithms Fixed:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+126.9593307086614118 674.6459055118109518 Td
+(Implemented Neighbor-Joining \(NJ\) Saitou & Nei 1987 algorithm; fixed UPGMA matrix lookup) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+126.9593307086614118 659.0553543307086102 Td
+(bounds bug; added Jukes-Cantor \(JC69\), Kimura 2-P \(K80\), and p-Distance models.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.024 0.714 0.831 rg
+45.354330708661422 643.4648031496062686 Td
+(• Test Suite:) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+98.0793307086614305 643.4648031496062686 Td
+(Verified across 10 test cases including exact 4-species test data, unequal length alignment, invalid) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.2 0.255 0.333 rg
+98.0793307086614305 627.8742519685039269 Td
+(characters, duplicate sequence headers, and highly divergent sequences.) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R ]
+/Count 2
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 7 0 R
+/F2 8 0 R
+/F3 9 0 R
+/F4 10 0 R
+/F5 11 0 R
+/F6 12 0 R
+/F7 13 0 R
+/F8 14 0 R
+/F9 15 0 R
+/F10 16 0 R
+/F11 17 0 R
+/F12 18 0 R
+/F13 19 0 R
+/F14 20 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+21 0 obj
+<<
+/Producer (jsPDF 4.2.1)
+/CreationDate (D:20260921004122+05'30')
+>>
+endobj
+22 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 23
+0000000000 65535 f 
+0000012888 00000 n 
+0000014713 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000010456 00000 n 
+0000010593 00000 n 
+0000012951 00000 n 
+0000013076 00000 n 
+0000013206 00000 n 
+0000013339 00000 n 
+0000013477 00000 n 
+0000013601 00000 n 
+0000013730 00000 n 
+0000013862 00000 n 
+0000013998 00000 n 
+0000014126 00000 n 
+0000014253 00000 n 
+0000014382 00000 n 
+0000014515 00000 n 
+0000014617 00000 n 
+0000014963 00000 n 
+0000015049 00000 n 
+trailer
+<<
+/Size 23
+/Root 22 0 R
+/Info 21 0 R
+/ID [ <ECC4F7A71E8612F2D0336ABDB7288B9A> <ECC4F7A71E8612F2D0336ABDB7288B9A> ]
+>>
+startxref
+15153
+%%EOF

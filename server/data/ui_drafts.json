@@ -1,0 +1,38 @@
+[
+  {
+    "id": "test-draft-1791619722222",
+    "name": "Automated Test Draft",
+    "targetPage": "protein",
+    "targetComponentId": "protein-canvas-container",
+    "styles": {
+      "protein-canvas-container": {
+        "height": "620px",
+        "borderRadius": "16px",
+        "boxShadow": "0 8px 32px rgba(6, 182, 212, 0.25)"
+      }
+    },
+    "scientificSettings": {
+      "canvasHeight": 620,
+      "renderStyle": "cartoon",
+      "colorScheme": "spectrum"
+    }
+  },
+  {
+    "id": "test-draft-1791619691348",
+    "name": "Automated Test Draft",
+    "targetPage": "protein",
+    "targetComponentId": "protein-canvas-container",
+    "styles": {
+      "protein-canvas-container": {
+        "height": "620px",
+        "borderRadius": "16px",
+        "boxShadow": "0 8px 32px rgba(6, 182, 212, 0.25)"
+      }
+    },
+    "scientificSettings": {
+      "canvasHeight": 620,
+      "renderStyle": "cartoon",
+      "colorScheme": "spectrum"
+    }
+  }
+]

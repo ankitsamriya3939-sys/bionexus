@@ -1,0 +1,848 @@
+/* ==========================================================================
+   BIONEXUS STUDIO - COMPREHENSIVE BIOINFORMATICS STYLING SYSTEM
+   ========================================================================== */
+
+:root {
+  /* Bacteriophage & Isometric Grid Royal Violet / Amethyst Luxury Palette */
+  --bg-primary: #090412;
+  --bg-secondary: #100720;
+  --bg-tertiary: #180a32;
+  --bg-card: rgba(20, 9, 40, 0.78);
+  --bg-card-hover: rgba(32, 14, 62, 0.90);
+  --bg-glass: rgba(16, 7, 32, 0.86);
+
+  /* Signature Amethyst & Royal Violet Brand Accents */
+  --accent-primary: #a855f7;
+  --accent-primary-hover: #c084fc;
+  --accent-violet: #8b5cf6;
+  --accent-purple: #9333ea;
+  --schrodinger-blue: #9333ea;
+  --schrodinger-blue-hover: #a855f7;
+  --pymol-cyan: #c084fc;
+  --pymol-cyan-glow: rgba(192, 132, 252, 0.45);
+  --pymol-pill-bg: #f3e8ff;
+  --pymol-pill-text: #3b0764;
+
+  --accent-cyan: #c084fc;
+  --accent-blue: #8b5cf6;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-orange: #fb923c;
+  --accent-gold: #fbbf24;
+  --accent-rose: #f43f5e;
+
+  /* Harmonized Typography / Text Colors tailored for the website frame */
+  --text-primary: #ffffff;
+  --text-secondary: #ddd6fe;
+  --text-muted: #a78bfa;
+  --text-dim: #7c6f9e;
+  --text-code: #f3e8ff;
+
+  --border-color: rgba(168, 85, 247, 0.22);
+  --border-focus: rgba(192, 132, 252, 0.65);
+  --border-glow: rgba(168, 85, 247, 0.45);
+
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  --shadow-glow: 0 0 24px rgba(168, 85, 247, 0.35);
+  --shadow-cyan: 0 0 24px rgba(192, 132, 252, 0.35);
+  --shadow-card: 0 16px 40px -10px rgba(0, 0, 0, 0.8);
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+  --bg-primary: #f5f3ff;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #ede9fe;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-hover: #faf5ff;
+  --bg-glass: rgba(255, 255, 255, 0.88);
+
+  --text-primary: #1e1035;
+  --text-secondary: #4c1d95;
+  --text-muted: #6b21a8;
+
+  --border-color: rgba(147, 51, 234, 0.18);
+  --shadow-glow: 0 0 20px rgba(168, 85, 247, 0.2);
+  --shadow-card: 0 10px 30px -10px rgba(76, 29, 149, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(ellipse at 80% 15%, rgba(168, 85, 247, 0.24) 0%, transparent 60%),
+    radial-gradient(ellipse at 15% 65%, rgba(124, 58, 237, 0.18) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(9, 4, 18, 0.90) 0%, rgba(9, 4, 18, 0.96) 100%),
+    url('/isometric-cubes.svg');
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: 60px 104px;
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+[data-theme="light"] body {
+  background-image: 
+    radial-gradient(ellipse at 80% 15%, rgba(168, 85, 247, 0.12) 0%, transparent 60%),
+    linear-gradient(to bottom, rgba(245, 243, 255, 0.94) 0%, rgba(237, 233, 254, 0.98) 100%),
+    url('/isometric-cubes.svg');
+  background-size: 60px 104px;
+}
+
+/* Hide Netlify Badge & Watermarks */
+[class*="netlify"],
+[id*="netlify"],
+iframe[src*="netlify"],
+.netlify-badge,
+#netlify-notification-owner-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary-hover);
+}
+
+/* Layout App Shell */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-body {
+  display: flex;
+  flex: 1;
+}
+
+.content-area {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Navbar */
+.navbar {
+  height: 64px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.logo-badge {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-amber));
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-icon {
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-icon:hover {
+  background: rgba(168, 85, 247, 0.22);
+  border-color: var(--accent-primary-hover);
+  color: var(--accent-primary-hover);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.3);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid var(--border-color);
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  border: 1px solid transparent;
+}
+
+.nav-item:hover {
+  background: rgba(168, 85, 247, 0.1);
+  color: var(--text-primary);
+}
+
+.nav-item.active {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.24), rgba(124, 58, 237, 0.14));
+  border-color: rgba(168, 85, 247, 0.45);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: var(--shadow-glow);
+}
+
+/* Cards & Glass Containers */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(168, 85, 247, 0.45);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.8), 0 0 24px rgba(168, 85, 247, 0.25);
+}
+
+/* Signature Bacteriophage Hero Banner */
+.home-hero-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 44px 38px;
+  background: 
+    linear-gradient(135deg, rgba(9, 4, 18, 0.95) 0%, rgba(24, 10, 48, 0.88) 45%, rgba(147, 51, 234, 0.28) 100%),
+    url('/isometric-cubes.svg') repeat;
+  background-size: 60px 104px;
+  border: 1px solid rgba(168, 85, 247, 0.42);
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.85), 0 0 35px rgba(168, 85, 247, 0.28);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-hero-banner:hover {
+  border-color: rgba(192, 132, 252, 0.65);
+  box-shadow: 0 28px 70px -15px rgba(0, 0, 0, 0.9), 0 0 45px rgba(168, 85, 247, 0.38);
+}
+
+[data-theme="light"] .home-hero-banner {
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(240, 246, 255, 0.88) 50%, rgba(0, 132, 214, 0.16) 100%),
+    url('/pymol-hero.jpg') center right / cover no-repeat;
+  border-color: rgba(0, 132, 214, 0.3);
+  box-shadow: 0 20px 50px -12px rgba(10, 16, 36, 0.1), 0 0 25px rgba(0, 132, 214, 0.12);
+}
+
+/* ==========================================================================
+   PYMOL 3 SIGNATURE BUTTONS & PILL CONTROLS (SCHRÖDINGER STYLE)
+   ========================================================================== */
+.btn-pymol-pill {
+  background: var(--pymol-pill-bg);
+  color: var(--pymol-pill-text);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-pymol-pill:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(192, 132, 252, 0.55);
+}
+
+.btn-pymol-pill .pill-arrow {
+  background: var(--pymol-pill-text);
+  color: var(--pymol-pill-bg);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-pymol-outline {
+  background: rgba(22, 10, 44, 0.7);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-pymol-outline:hover {
+  background: rgba(38, 16, 75, 0.9);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35);
+}
+
+.btn-pymol-outline .pill-arrow {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Signature Royal Purple Pill */
+.btn-schrodinger {
+  background: linear-gradient(135deg, #9333ea, #7c3aed);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(147, 51, 234, 0.45);
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-schrodinger:hover {
+  background: linear-gradient(135deg, #a855f7, #8b5cf6);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(168, 85, 247, 0.6);
+}
+
+/* PyMOL Video Tour Pill */
+.pymol-video-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  padding: 6px 18px 6px 6px;
+  border-radius: var(--radius-pill);
+  background: rgba(22, 10, 44, 0.65);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  backdrop-filter: blur(14px);
+  transition: all 0.25s ease;
+}
+
+.pymol-video-pill:hover {
+  background: rgba(36, 16, 70, 0.85);
+  border-color: var(--accent-primary-hover);
+  box-shadow: 0 0 24px rgba(168, 85, 247, 0.35);
+}
+
+.pymol-play-ring {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.15), 0 0 0 10px rgba(168, 85, 247, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b0764;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pymol-video-pill:hover .pymol-play-ring {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.25), 0 0 0 14px rgba(168, 85, 247, 0.35);
+}
+
+/* PyMOL Scene Bullet List */
+.pymol-bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pymol-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.pymol-bullet-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+/* PyMOL Software Studio Window Frame */
+.pymol-app-frame {
+  background: #0d061a;
+  border: 1px solid rgba(168, 85, 247, 0.28);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.85), 0 0 35px rgba(168, 85, 247, 0.15);
+}
+
+.pymol-app-header {
+  height: 38px;
+  background: #140927;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.pymol-window-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.pymol-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.pymol-dot.red { background: #ef4444; }
+.pymol-dot.yellow { background: #f59e0b; }
+.pymol-dot.green { background: #10b981; }
+
+/* PyMOL Command Line Interface Bar */
+.pymol-cmd-bar {
+  background: #090412;
+  border-top: 1px solid rgba(168, 85, 247, 0.2);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: #e9d5ff;
+}
+
+.pymol-cmd-prompt {
+  color: var(--accent-primary-hover);
+  font-weight: 700;
+  user-select: none;
+}
+
+/* PyMOL Iconic ASCHL Button Cluster */
+.pymol-aschel-group {
+  display: inline-flex;
+  gap: 3px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pymol-btn-action {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor: pointer;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  transition: all 0.15s ease;
+}
+
+.pymol-btn-action:hover {
+  background: var(--schrodinger-blue);
+  color: #ffffff;
+}
+
+.pymol-btn-action.active {
+  background: var(--accent-primary);
+  color: #070b1a;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-primary);
+}
+
+/* Form Controls & Sequence Textarea */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.input-field,
+.select-field,
+.textarea-field {
+  background: rgba(16, 7, 32, 0.65);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.textarea-field {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.input-field:focus,
+.select-field:focus,
+.textarea-field:focus {
+  border-color: var(--accent-primary-hover);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.3);
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 12px 24px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 18px rgba(168, 85, 247, 0.38);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(168, 85, 247, 0.55);
+}
+
+.btn-secondary {
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(168, 85, 247, 0.18);
+  border-color: var(--accent-primary-hover);
+}
+
+/* Grids */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 20px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* Stat Badge Pill */
+.stat-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.stat-value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+
+}
+
+/* Sequence Viewer */
+.sequence-box {
+  font-family: var(--font-mono);
+  background: #090412;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  word-break: break-all;
+  white-space: pre-wrap;
+  color: #f3e8ff;
+}
+
+.base-a {
+  color: #f87171;
+}
+
+.base-t {
+  color: #60a5fa;
+}
+
+.base-g {
+  color: #34d399;
+}
+
+.base-c {
+  color: #fbbf24;
+}
+
+/* Tables */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.bio-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.bio-table th {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 12px 16px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.bio-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.bio-table tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .main-body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px;
+  }
+
+  .nav-item {
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+
+  .content-area {
+    padding: 16px;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}

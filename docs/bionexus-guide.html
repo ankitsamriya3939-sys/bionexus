@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioNexus Studio — Personal Learner Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --border: #1f293d;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --accent: #818cf8;
+      --emerald: #34d399;
+      --amber: #fbbf24;
+      --rose: #fb7185;
+      --code-bg: #0b1120;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 32px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .action-btn {
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s;
+    }
+    .action-btn:hover { opacity: 0.9; }
+
+    h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3 {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin: 24px 0 12px;
+    }
+
+    p, ul, ol {
+      margin-bottom: 16px;
+      color: #cbd5e1;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--code-bg);
+      color: #38bdf8;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      overflow-x: auto;
+      margin-bottom: 24px;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+      border: none;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      display: block;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 24px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+    }
+
+    th {
+      background: rgba(56, 189, 248, 0.08);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .formula {
+      background: rgba(129, 140, 248, 0.08);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+      font-family: 'JetBrains Mono', monospace;
+      color: #e0e7ff;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        border: none;
+        padding: 20px;
+        max-width: 100%;
+        background: #fff;
+      }
+      .action-btn { display: none; }
+      pre, code {
+        background: #f1f5f9;
+        color: #0f172a;
+        border-color: #cbd5e1;
+      }
+      h1, h2, h3 { color: #0f172a; -webkit-text-fill-color: initial; background: none; }
+      .formula { background: #f8fafc; border-left-color: #4f46e5; color: #1e1b4b; }
+      th { background: #f1f5f9; color: #0f172a; }
+      td, th { border-color: #cbd5e1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <span class="badge">Private Personal Reference</span>
+        <h1>BioNexus Studio</h1>
+        <p class="subtitle">Complete Technical Blueprint, Computational Biology Engines, & Backend Architecture</p>
+      </div>
+      <div>
+        <button class="action-btn" onclick="window.print()">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+          Print / Save as PDF
+        </button>
+      </div>
+    </header>
+
+    <h2>1. Executive Summary & Architecture</h2>
+    <p><strong>BioNexus Studio</strong> is an in-browser computational biology platform built with React 19, Vite 8, and Express 5. It performs heavy bioinformatic operations (BLAST, MSA, Phylogenetics, Primer Design) entirely client-side using JavaScript, paired with an Express proxy for NCBI Entrez APIs and local JSON file persistence.</p>
+
+    <div class="card">
+      <h3 style="margin-top:0;">High-Level Data Flow</h3>
+      <ul>
+        <li><strong>Frontend:</strong> React 19 + Vite at <code>http://localhost:5173</code>.</li>
+        <li><strong>Backend:</strong> Express 5 server at <code>http://localhost:5000</code>.</li>
+        <li><strong>NCBI E-Utilities:</strong> Express server proxies <code>esearch</code>, <code>esummary</code>, and <code>efetch</code> with fallback to direct client-side Entrez if offline.</li>
+        <li><strong>Global Pipeline:</strong> <code>WorkspaceContext.jsx</code> holds the active sequence, syncing to both <code>localStorage</code> and Express <code>server/data/</code>.</li>
+      </ul>
+    </div>
+
+    <h2>2. Deep Dive: The Bioinformatic Engines</h2>
+
+    <h3>A. NCBI E-Utilities Integration (<code>src/utils/ncbiService.js</code>)</h3>
+    <p>NCBI exposes Entrez E-Utilities. Our integration uses a 3-step pipeline:</p>
+    <ol>
+      <li><strong><code>esearch</code>:</strong> Queries keywords (e.g., "TP53 human") and extracts a list of Unique Identifiers (UIDs).</li>
+      <li><strong><code>esummary</code>:</strong> Takes UIDs and downloads document metadata (title, organism, sequence length).</li>
+      <li><strong><code>efetch</code>:</strong> Streams the raw FASTA sequence with headers and residue characters.</li>
+    </ol>
+    <div class="formula">
+      GET https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=NM_000546.6&rettype=fasta&retmode=text
+    </div>
+
+    <h3>B. Local BLAST Engine (<code>src/utils/blastEngine.js</code>)</h3>
+    <p>Instead of queuing on remote NCBI servers, BioNexus executes an interactive local alignment algorithm in JavaScript:</p>
+    <ul>
+      <li><strong>Smith-Waterman Dynamic Programming:</strong> Builds an $(m+1) \times (n+1)$ matrix where negative scores are floored at 0 to isolate local alignments.</li>
+      <li><strong>Scoring Scheme:</strong> Matches (+2 nt, +4 aa), Mismatches (-3 nt, -2 aa), Gaps (-5 nt, -3 aa).</li>
+      <li><strong>Traceback:</strong> Starts from the maximum score in the matrix and steps back to 0, constructing the query, match symbols (<code>|</code>, <code>.</code>), and subject.</li>
+    </ul>
+
+    <div class="formula">
+      Bit Score (S') = (λ * S - ln(K)) / ln(2)<br>
+      E-Value = K * m * n * e^(-λ * S)
+    </div>
+
+    <p><strong>Supported Programs:</strong> <code>blastn</code>, <code>blastp</code>, <code>blastx</code> (translated query), <code>tblastn</code> (translated subject), and <code>tblastx</code> (both translated).</p>
+
+    <h3>C. Multiple Sequence Alignment (<code>src/utils/alignmentEngine.js</code>)</h3>
+    <ul>
+      <li><strong>Needleman-Wunsch Global Alignment:</strong> Penalizes ends to guarantee end-to-end alignment between sequences.</li>
+      <li><strong>Progressive Alignment:</strong> The first sequence acts as a reference seed. As additional sequences are aligned, gaps introduced into the reference are synchronously padded across all existing rows.</li>
+      <li><strong>Consensus & Conservation:</strong> Calculates column-wise frequency to extract the consensus residue and percentage agreement.</li>
+      <li><strong>Clustal Colors:</strong> Real-time color coding for nucleotides and amino acid biochemical groups.</li>
+    </ul>
+
+    <h3>D. Phylogenetic Tree Construction (<code>src/utils/phyloEngine.js</code>)</h3>
+    <ul>
+      <li><strong>Jukes-Cantor Distance:</strong> Corrects for multiple substitutions at the same site:
+        <div class="formula">d = -0.75 * ln(1 - (4/3) * p)</div>
+      </li>
+      <li><strong>Clustering:</strong> Supports both <strong>UPGMA</strong> (constant molecular clock) and <strong>Neighbor-Joining</strong> (variable lineage rates).</li>
+      <li><strong>Newick & SVG:</strong> Serializes clusters into Newick parenthetical strings and calculates coordinates to render interactive SVG trees.</li>
+    </ul>
+
+    <h3>E. PCR Primer Designer (<code>src/utils/primerEngine.js</code>)</h3>
+    <ul>
+      <li><strong>Thermodynamic Melting Temperature:</strong> Uses SantaLucia nearest-neighbor enthalpy and entropy values with monovalent salt adjustments.</li>
+      <li><strong>GC Clamp:</strong> Enforces 1-2 G/C residues within the final 5 bases of the 3' end.</li>
+      <li><strong>Dimer & Hairpin Check:</strong> Analyzes self-complementarity to screen out unwanted secondary structures.</li>
+    </ul>
+
+    <h3>F. 3D Protein Structure Viewer (<code>src/components/ProteinStructure.jsx</code>)</h3>
+    <p>Integrates <code>3Dmol.js</code> to mount a WebGL canvas that downloads PDB files from RCSB and renders Cartoon, Stick, Sphere, and Molecular Surface representations.</p>
+
+    <h2>3. Express Backend (<code>server/server.js</code>)</h2>
+    <ul>
+      <li><strong>CORS & Proxying:</strong> Forwards requests to NCBI with proper user-agent headers to avoid browser CORS blocks.</li>
+      <li><strong>JSON File Persistence:</strong> Stores records in <code>server/data/</code> (projects, sequences, primers, analyses) without requiring database installation.</li>
+      <li><strong>Crash Guards:</strong> Catches <code>uncaughtException</code> and <code>unhandledRejection</code> so background network glitches never bring the server down.</li>
+      <li><strong>Single-Port Production:</strong> Statically serves Vite's built <code>dist/</code> bundle on port 5000 in production.</li>
+    </ul>
+
+    <h2>4. Quick File Reference Table</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Module / Feature</th>
+            <th>Primary Files</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>NCBI Entrez</strong></td>
+            <td><code>src/utils/ncbiService.js</code>, <code>server/server.js</code></td>
+            <td>Search, metadata, and FASTA retrieval with automatic fallback.</td>
+          </tr>
+          <tr>
+            <td><strong>BLAST Center</strong></td>
+            <td><code>src/utils/blastEngine.js</code>, <code>src/components/BlastCenter.jsx</code></td>
+            <td>Interactive Smith-Waterman local alignment and E-value statistics.</td>
+          </tr>
+          <tr>
+            <td><strong>Alignment Hub</strong></td>
+            <td><code>src/utils/alignmentEngine.js</code>, <code>src/components/AlignmentHub.jsx</code></td>
+            <td>Progressive Needleman-Wunsch multiple sequence alignment.</td>
+          </tr>
+          <tr>
+            <td><strong>Phylogenetics</strong></td>
+            <td><code>src/utils/phyloEngine.js</code>, <code>src/components/Phylogenetics.jsx</code></td>
+            <td>UPGMA, Neighbor-Joining trees, and dynamic SVG cladograms.</td>
+          </tr>
+          <tr>
+            <td><strong>Primer Designer</strong></td>
+            <td><code>src/utils/primerEngine.js</code>, <code>src/components/PrimerDesigner.jsx</code></td>
+            <td>Thermodynamic Tm, GC clamp, and hairpin/dimer detection.</td>
+          </tr>
+          <tr>
+            <td><strong>Central Pipeline</strong></td>
+            <td><code>src/context/WorkspaceContext.jsx</code>, <code>ActiveSequenceBar.jsx</code></td>
+            <td>Cross-tool active sequence synchronization.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>5. How to Add a New Tool Step-by-Step</h2>
+    <ol>
+      <li><strong>Write the Algorithm:</strong> Create a pure JavaScript module in <code>src/utils/yourToolEngine.js</code>.</li>
+      <li><strong>Build the Component:</strong> Create <code>src/components/YourTool.jsx</code> and access <code>activeSequenceObj</code> via <code>useWorkspace()</code>.</li>
+      <li><strong>Add the Route:</strong> Register the path in <code>App.jsx</code> inside <code>getTabFromPath()</code> and <code>getPathFromTab()</code>.</li>
+      <li><strong>Add Navigation:</strong> Insert a button and Lucide icon in <code>Sidebar.jsx</code> and <code>Navbar.jsx</code>.</li>
+    </ol>
+
+    <p style="margin-top: 40px; text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+      BioNexus Studio — Personal Confidential Study Guide<br>
+      Stored locally on your machine.
+    </p>
+  </div>
+</body>
+</html>

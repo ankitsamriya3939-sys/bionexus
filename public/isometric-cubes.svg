@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="104" viewBox="0 0 60 104">
+  <defs>
+    <linearGradient id="cubeWire" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0.22"/>
+      <stop offset="50%" stop-color="#9333ea" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#6b21a8" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="topFace" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.01"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#cubeWire)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Center Cube 1: Top face -->
+    <polygon points="30,0 60,17.33 30,34.67 0,17.33" fill="url(#topFace)"/>
+    <!-- Center Cube 1: Left face -->
+    <polygon points="0,17.33 30,34.67 30,69.33 0,52"/>
+    <!-- Center Cube 1: Right face -->
+    <polygon points="30,34.67 60,17.33 60,52 30,69.33"/>
+
+    <!-- Shifted Cube 2: Top face (shifted by 30 in X and 52 in Y) -->
+    <!-- Wrapped around edges to ensure 100% seamless tiling -->
+    <polygon points="0,52 30,69.33 0,86.67 -30,69.33" fill="url(#topFace)"/>
+    <polygon points="60,52 90,69.33 60,86.67 30,69.33" fill="url(#topFace)"/>
+    
+    <polygon points="30,69.33 60,86.67 60,121.33 30,104"/>
+    <polygon points="30,69.33 0,86.67 0,121.33 30,104"/>
+
+    <!-- Top edge wrap for Cube 2 bottom half -->
+    <polygon points="30,-34.67 60,-17.33 60,17.33 30,0"/>
+    <polygon points="30,-34.67 0,-17.33 0,17.33 30,0"/>
+
+    <!-- Bottom face wrap for Cube 2 -->
+    <polygon points="30,104 60,86.67 30,69.33 0,86.67" fill="url(#topFace)"/>
+  </g>
+</svg>
